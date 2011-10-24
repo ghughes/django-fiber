@@ -46,7 +46,7 @@ class AdminPageMiddleware(object):
             request.session['show_fiber_admin'] = True
             url_without_fiber = request.path.replace('@fiber', '')
             querystring = request.META['QUERY_STRING'] if request.META['QUERY_STRING'] else ''
-            querystring_without_fiber = request.META['QUERY_STRING'].replace('@fiber', '')
+            querystring_without_fiber = querystring.replace('@fiber', '')
             if(querystring_without_fiber != ''):
                 querystring = '?%s' % querystring_without_fiber
             else:
